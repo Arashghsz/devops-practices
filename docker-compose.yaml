@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  service1:
+    build: ./service1
+    ports:
+      - "8199:8199"
+    volumes:
+      - ./vstorage:/app/vstorage
+    depends_on:
+      - service2
+      - storage
+
+  service2:
+    build: ./service2
+    volumes:
+      - ./vstorage:/app/vstorage
+
+  storage:
+    build: ./storage
+    volumes:
+      - ./vstorage:/app/vstorage
