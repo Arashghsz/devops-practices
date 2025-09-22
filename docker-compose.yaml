@@ -10,13 +10,26 @@ services:
     depends_on:
       - service2
       - storage
+    networks:
+      - backend
 
   service2:
     build: ./service2
     volumes:
       - ./vstorage:/app/vstorage
+    networks:
+      - backend
 
   storage:
     build: ./storage
     volumes:
-      - ./vstorage:/app/vstorage
+      - storage_data:/app/data
+    networks:
+      - backend
+
+volumes:
+  storage_data:
+
+networks:
+  backend:
+    driver: bridge
