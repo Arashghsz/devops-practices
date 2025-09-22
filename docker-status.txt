@@ -1,10 +1,10 @@
-CONTAINER ID   IMAGE                           COMMAND                  CREATED              STATUS              PORTS                                       NAMES
-436c980c61ce   docker-microservices_service1   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:8199->8199/tcp, :::8199->8199/tcp   docker-microservices_service1_1
-790035e2aef0   docker-microservices_service2   "docker-php-entrypoi…"   About a minute ago   Up About a minute   8200/tcp                                    docker-microservices_service2_1
-8f517b8847d6   docker-microservices_storage    "docker-entrypoint.s…"   About a minute ago   Up About a minute                                               docker-microservices_storage_1
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+3084de656003   devops-practices_service1   "docker-entrypoint.s…"   34 seconds ago   Up 33 seconds   0.0.0.0:8199->8199/tcp, :::8199->8199/tcp   devops-practices_service1_1
+0e3d0fd4f73f   devops-practices_service2   "docker-php-entrypoi…"   35 seconds ago   Up 35 seconds   8200/tcp                                    devops-practices_service2_1
+cf239a1645ce   devops-practices_storage    "docker-entrypoint.s…"   35 seconds ago   Up 35 seconds                                               devops-practices_storage_1
 
-NETWORK ID     NAME                           DRIVER    SCOPE
-7ff419ef7c6d   bridge                         bridge    local
-db572f8fe33c   docker-microservices_backend   bridge    local
-dbac90bb4015   host                           host      local
-464c8c674445   none                           null      local
+NETWORK ID     NAME                       DRIVER    SCOPE
+7ff419ef7c6d   bridge                     bridge    local
+017aae36b2bf   devops-practices_backend   bridge    local
+dbac90bb4015   host                       host      local
+464c8c674445   none                       null      local

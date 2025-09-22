@@ -46,6 +46,7 @@ Networking:
 - A single user-defined `backend` network connects all three services. Only Service1 publishes a host port.
 
 How to run
+- `cd devops-practices`
 - Build and start: `docker compose up --build -d`
 - Wait ~10 seconds
 - Test status flow: `curl localhost:8199/status`

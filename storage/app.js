@@ -1,11 +1,18 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = 8300;
-const LOG_FILE = '/app/vstorage/log.txt';
+const LOG_FILE = '/app/data/log.txt';
 
 app.use(express.text());
+
+// ensure log directory exists
+const logDir = path.dirname(LOG_FILE);
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir, { recursive: true });
+}
 
 // ensure log file exists
 if (!fs.existsSync(LOG_FILE)) {
