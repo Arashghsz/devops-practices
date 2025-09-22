@@ -1,21 +1,30 @@
-# Microservices exercise (Service1, Service2, Storage)
+# DevOps Course Exercises
 
-This setup implements the required three services and two persistent storage mechanisms.
+This repository contains exercises for the DevOps course. Each exercise is maintained in a separate branch.
 
-## Platform Information
-- **Hardware/VM**: VirtualBox virtual machine
-- **Operating System**: Linux Ubuntu
-- **Docker Version**: Docker version 24.0.6
-- **Docker Compose Version**: v2.22.0-desktop.2
+## Exercise Branches
 
-## System Architecture
+- **exercise1**: Docker Compose and Microservices implementation with Node.js and PHP services.
+- *Additional exercises will be added in their own branches*
 
-Services:
-- Service1 (Node.js/Express) — the only externally exposed service on port 8199. IP: 172.18.0.4
-- Service2 (PHP) — internal only. Provides `/status` and logs to both storages. IP: 172.18.0.3
-- Storage (Node.js/Express) — simple REST service with IP: 172.18.0.2
-  - POST /log (text/plain) — append one line persistently
-  - GET /log (text/plain) — return full log
+## Exercise 1: Docker Compose and Microservices
+
+Exercise 1 focuses on creating a multi-container application using Docker Compose with the following components:
+
+- **Service1**: Node.js service exposed on port 8199
+- **Service2**: PHP service for internal status reporting
+- **Storage**: Node.js service for persistent storage
+- **Volume**: Shared volume for additional persistence
+
+To access the implementation, checkout the `exercise1` branch:
+
+```bash
+git checkout exercise1
+```
+
+## Course Materials
+
+- The course materials and requirements can be found in the provided PDF documents.
 
 ```
                                  +------------------+
