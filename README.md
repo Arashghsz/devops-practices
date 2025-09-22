@@ -27,12 +27,13 @@ Networking:
 - A single user-defined `backend` network connects all three services. Only Service1 publishes a host port.
 
 How to run
+- Clone the repository using command: `git clone -b exercise1 git@github.com:Arashghsz/devops-practices.git`
 - `cd devops-practices`
-- Build and start: `docker compose up --build -d`
+- Build and start: `docker-compose up --build -d`
 - Wait ~10 seconds
 - Test status flow: `curl localhost:8199/status`
 - Fetch storage log via gateway: `curl localhost:8199/log`
-- Stop: `docker compose down`
+- Stop: `docker-compose down`
 
 Teacher cleanup instructions
 - Remove the simple host-file storage: `rm -f ./vstorage`
