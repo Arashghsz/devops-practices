@@ -1,0 +1,9 @@
+I have used chatGPT V5 as a guidance for this exercise. 
+Since I had to install virtualbox on my personal machine, 
+the LLM helped me with some configuration. In terms of coding tasks, 
+since this course is not a progamming course, I used LLM to generate 
+some functions both in JS and PHP so I could focus more on docker side.
+Some outputs of the mentioned LLM in php, did not help me at all as it had some error while running in with docker.
+I also did some research on Report.pdf questions and gave it to the LLM to 
+restructure them so I could have a well-designed readme file.
+the LLM was not able to debug and run the docker containers.

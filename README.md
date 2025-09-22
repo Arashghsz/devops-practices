@@ -17,26 +17,7 @@ Services:
   - POST /log (text/plain) — append one line persistently
   - GET /log (text/plain) — return full log
 
-```
-                                 +------------------+
-                                 | Docker Host      |
-                                 +------------------+
-                                          |
-                                          | (port 8199)
-                                          v
-+------------------+            +------------------+            +------------------+
-| Storage Service  |<-----------| Service1         |----------->| Service2         |
-| (172.18.0.2)     |  (POST,    | (172.18.0.4)     |  (GET      | (172.18.0.3)     |
-|                  |   GET /log) |                  |   /status) |                  |
-+------------------+            +------------------+            +------------------+
-       ^                               ^                              ^
-       |                               |                              |
-       v                               v                              v
-+------------------+            +--------------------------+          |
-| storage_data     |            | vstorage (host ./vstorage file) <--+
-| (named volume)   |            | (shared file persistence)   |
-+------------------+            +--------------------------+
-```
+![alt text](DevOps_diagram.png)
 
 Persistence:
 - vStorage: host file `./vstorage` mounted into Service1 and Service2 at `/app/vstorage` and appended per request. This is the simple shared file method.
@@ -102,11 +83,4 @@ Teacher cleanup instructions
    - Service1 proxies to Storage GET /log and returns text/plain.
 
 ## Challenges and Solutions
-- **Challenge**: Ensuring proper isolation of services while allowing needed communication.
-  **Solution**: Defined custom backend network and only exposed Service1 port externally.
-
-- **Challenge**: Implementing consistent persistence across different language services.
-  **Solution**: Used mounted files for direct writes and HTTP APIs for cross-service logging.
-
-- **Challenge**: Formatting records consistently across different programming languages.
-  **Solution**: Careful alignment of timestamp formats and metrics calculation in both Node.js and PHP.The outputs of `cat ./vstorage` and `curl localhost:8199/log` should be semantically aligned (two lines per /status request), albeit one is the shared file and the other is the storage service's own file. Both will accumulate two lines per /status call.
+One of my main challenges was ensuring proper isolation of services while allowing needed communication. I have researched a bit more and as a result, I defined custom backend network and only exposed Service1 port externally. Since I am not using Linux for my personal use, I had to use virtualbox as mentioned before. I created a shared file in the vm and my PC to develop it in a more convenient way. That being said, my main problem was Linux configuration.
